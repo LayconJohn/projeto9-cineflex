@@ -30,7 +30,7 @@ export default function Home(){
             {listaFilmes.length === 0 ? "Carregando..." :
             <AreaFilmes>
                 {listaFilmes.map(filme => (
-                    <Link to={`sessoes/${filme.id}`}> 
+                    <Link to={`sessoes/${filme.id}`} key={filme.id}> 
                         <Filme filme={filme}/>
                     </Link>
                 ))}

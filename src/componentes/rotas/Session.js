@@ -4,24 +4,26 @@ import axios from "axios";
 
 import Descricao from '../elementos/descricao/Descricao';
 import Footer from "../elementos/footer/Footer";
+import SessaoInfo from "../elementos/sessaoInfo/SessaoInfo";
 
 export default function Session() {
     const {idFilme} = useParams()
     const [informacoesFilme, setInformacoesFilme] = useState({})
+    const [dias, setDias] = useState([]);   
 
     //logic
     useEffect( () => {
         const promisse = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies/${idFilme}/showtimes`);
         promisse.then( ({data}) => {
-            console.log(data)
             setInformacoesFilme({nomeFilme: data.title, urlFilme:data.posterURL})
+            setDias(data.days)
         }) 
     }, [])
     
     return (
         <>
         <Descricao subtitulo="Selecione o horário"/>
-            Filme {idFilme}
+        {dias.map( dia => <SessaoInfo dia={dia}/>)}
         <Footer informacoesFilme={informacoesFilme}/>
         </>
     )
