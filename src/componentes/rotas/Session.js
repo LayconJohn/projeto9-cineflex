@@ -24,7 +24,7 @@ export default function Session() {
         <>
         <Descricao subtitulo="Selecione o horário"/>
         {dias.map( dia => <SessaoInfo dia={dia}/>)}
-        <Footer informacoesFilme={informacoesFilme}/>
+        <Footer informacoesFilme={informacoesFilme}></Footer>
         </>
     )
 }

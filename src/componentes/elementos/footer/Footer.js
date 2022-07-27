@@ -1,12 +1,15 @@
 import { EspacoFooter, PosterFooter, TituloFilme } from "./styledFooter"
 
-export default function Footer( {informacoesFilme}) {
+export default function Footer( {informacoesFilme, children}) {
     return (
         <EspacoFooter>
             <PosterFooter>
                 <img src={informacoesFilme.urlFilme} alt={informacoesFilme.nomeFilme} />
             </PosterFooter>
-            <TituloFilme> {informacoesFilme.nomeFilme} </TituloFilme>
+            <div>
+                <TituloFilme> {informacoesFilme.nomeFilme} </TituloFilme>
+                {children}
+            </div>
         </EspacoFooter>
     )
 }
