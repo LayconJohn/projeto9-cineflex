@@ -11,17 +11,27 @@ import Form from "../elementos/forms/Form";
 import Legenda from "../elementos/legenda/Legenda";
 
 export default function Assentos(){
+    console.log("Atualizei");
+    
     const {idSessao} = useParams();
     const [informacoesSessao, setInformacoesSessao] = useState({});
     const [assentos, setAssentos] = useState([]);
 
+
     useEffect( () => {
+        console.log("Criei o componente");
         const promisse = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${idSessao}/seats`);
         promisse
             .then( ({data}) => {
-            console.log(data);
-            setAssentos(data.seats)
+            //setAssentos(data.seats)
             setInformacoesSessao({nomeFilme: data.movie.title, urlFilme: data.movie.posterURL, diaFilme: data.day.weekday, horarioFilme: data.name});
+            const array = data.seats.map( (seat) => {
+                return {
+                    ...seat,
+                    isSelected: false
+                }  
+            })
+            setAssentos([...array]);
         })
             .catch( (err) => {
                 console.log(err);
@@ -32,7 +42,7 @@ export default function Assentos(){
         <>
             <Descricao subtitulo="Selecione o(s) assento(s)" />
             <AreaAssentos>
-                {assentos.map(assento => <Assento assento={assento}/>)}
+                {assentos.map(assento => <Assento key={assentos.id} assento={assento}/>)}
             </AreaAssentos>
             <Legenda />
             <Form />

@@ -10,9 +10,22 @@ const AssentoIndividual = styled.div`
     color: #000000;
     font-size: 11px;
     font-weight: normal;
-    background-color: ${props => props.disponivel ? "#C3CFD9" : "#FBE192"};
-    border: 1px solid ${props => props.disponivel ? "#808F9D" : "#F7C52B"};
+    background-color: ${props => props.corAssento};
+    border: 1px solid ${props => props.corAssento};
     margin: 8px;
+    scale: 0.9;
+    opacity: 0.9;
+    transition: all ease 0.4s;
+
+    &:hover {
+        scale: 1;
+        opacity: 1;
+    }
+
+    &:active {
+        transform: translate3d(1px 2px 1px);
+    }
+
 `;
 
 export {AssentoIndividual};
