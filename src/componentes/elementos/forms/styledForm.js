@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 const AreaForms = styled.div`
     margin-left: 24px;
+    box-sizing: border-box;
+    margin-bottom: 100px;
 `
 
 const TituloForm = styled.h5`
@@ -31,6 +33,7 @@ const BotaoForm = styled.button`
     margin: 0 auto;
     text-align: center;
     margin-top: 30px;
+    margin-bottom: 89px;
 `;
 
 export {TituloForm, InputForm, BotaoForm, AreaForms};

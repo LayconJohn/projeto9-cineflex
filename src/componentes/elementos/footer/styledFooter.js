@@ -19,6 +19,7 @@ const PosterFooter = styled.div`
     border-radius: 3px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     margin-left: 10px;
+    margin-top: 100px;
 
     img {
         width: 48px;

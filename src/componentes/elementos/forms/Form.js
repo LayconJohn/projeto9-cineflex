@@ -18,7 +18,7 @@ export default function Form( {
         
         const listaIds = assentos.map( (value, index) => {
             if (value.isSelected) {
-                return value.name
+                return value.id
             } 
         })
         const info = {name: nomeComprador, cpf: cpfComprador, ids: listaIds.filter( id => id !== undefined)}
