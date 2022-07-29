@@ -11,19 +11,19 @@ import Form from "../elementos/forms/Form";
 import Legenda from "../elementos/legenda/Legenda";
 
 export default function Assentos(){
-    console.log("Atualizei");
-    
+    //State
     const {idSessao} = useParams();
     const [informacoesSessao, setInformacoesSessao] = useState({});
     const [assentos, setAssentos] = useState([]);
+    const [idsAssentos, setIdsAssentos] = useState([]);
+    const [nomeComprador, setNomeComprador] = useState('');
+    const [cpfComprador, setCpfComprador] = useState('');
 
-
+    //Logic
     useEffect( () => {
-        console.log("Criei o componente");
-        const promisse = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${idSessao}/seats`);
+        const promisse = axios.get(`https://mock-api.driven.com.br/api/v7/cineflex/showtimes/${idSessao}/seats`);
         promisse
             .then( ({data}) => {
-            //setAssentos(data.seats)
             setInformacoesSessao({nomeFilme: data.movie.title, urlFilme: data.movie.posterURL, diaFilme: data.day.weekday, horarioFilme: data.name});
             const array = data.seats.map( (seat) => {
                 return {
@@ -38,14 +38,27 @@ export default function Assentos(){
             })
     }, [])
 
+    //UI
     return (
         <>
             <Descricao subtitulo="Selecione o(s) assento(s)" />
             <AreaAssentos>
-                {assentos.map(assento => <Assento key={assentos.id} assento={assento}/>)}
+                {assentos.map(assento => (
+                <Assento 
+                    key={assento.id} 
+                    assento={assento}
+                    idsAssentos={idsAssentos}
+                    setIdsAssentos={setIdsAssentos}
+                />))}
             </AreaAssentos>
             <Legenda />
-            <Form />
+            <Form 
+                assentos={assentos}
+                nomeComprador={nomeComprador}
+                setNomeComprador={setNomeComprador}
+                cpfComprador={cpfComprador}
+                setCpfComprador={setCpfComprador}
+            />
             <Footer informacoesFilme={informacoesSessao}>
                 <TituloFilme>{informacoesSessao.diaFilme} - {informacoesSessao.horarioFilme}</TituloFilme>
             </Footer>

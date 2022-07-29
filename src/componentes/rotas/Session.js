@@ -13,7 +13,7 @@ export default function Session() {
 
     //logic
     useEffect( () => {
-        const promisse = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies/${idFilme}/showtimes`);
+        const promisse = axios.get(`https://mock-api.driven.com.br/api/v7/cineflex/movies/${idFilme}/showtimes`);
         promisse.then( ({data}) => {
             setInformacoesFilme({nomeFilme: data.title, urlFilme:data.posterURL})
             setDias(data.days)

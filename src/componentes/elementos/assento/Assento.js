@@ -2,9 +2,8 @@ import { AssentoIndividual } from "./styledAssento"
 import { useState } from "react";
 
 export default function Assento({assento}) {
-    const [assentoDisponivel, setAssentoDisponivel] = useState(assento.isAvailable);
+    //const [assentoDisponivel, setAssentoDisponivel] = useState(assento.isAvailable);
     const [assentoSelecionado, setAssentoSelecionado] = useState(assento.isSelected);
-    const [corBorda, setCorBorda] = useState(assento.isAvailable ? "#808F9D" : "#F7C52B");
 
 
     function selecionarAssento (assento) {
@@ -12,17 +11,14 @@ export default function Assento({assento}) {
             alert("Esse assento não está disponível!")
             return
         }
-        if (assento.isSelected) {
-            setAssentoSelecionado(!assentoSelecionado);
-        } else {
-            setAssentoSelecionado(!assentoSelecionado);
-        }
-
+        setAssentoSelecionado(!assentoSelecionado);
+        assento.isSelected = !assento.isSelected;
     }
 
     return (
         <AssentoIndividual
-            corAssento={assento.isAvailable ? `${!assentoSelecionado ? "#C3CFD9" : "#8DD7CF"}` : "#FBE192"} 
+            corAssento={assento.isAvailable ? `${!assentoSelecionado ? "#C3CFD9" : "#8DD7CF"}` : "#FBE192"}
+            corBorda={assento.isAvailable ? `${!assentoSelecionado ? "#808F9D" : "#1AAE9E"}` : "#F7C52B"} 
             onClick={() => selecionarAssento(assento)}
             >
             {assento.name}

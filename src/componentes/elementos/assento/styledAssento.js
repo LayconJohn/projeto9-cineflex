@@ -11,11 +11,12 @@ const AssentoIndividual = styled.div`
     font-size: 11px;
     font-weight: normal;
     background-color: ${props => props.corAssento};
-    border: 1px solid ${props => props.corAssento};
+    border: 1px solid ${props => props.corBorda};
     margin: 8px;
     scale: 0.9;
     opacity: 0.9;
     transition: all ease 0.4s;
+    cursor: pointer;    
 
     &:hover {
         scale: 1;
