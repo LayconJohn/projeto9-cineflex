@@ -26,7 +26,7 @@ export default function Home(){
     //render
     return (
         <>
-            <Descricao subtitulo="Selecione o filme"/>
+            <Descricao subtitulo="Selecione o filme" corDescricao="#293845"/>
             {listaFilmes.length === 0 ? "Carregando..." :
             <AreaFilmes>
                 {listaFilmes.map(filme => (

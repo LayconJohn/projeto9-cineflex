@@ -41,7 +41,7 @@ export default function Assentos(){
     //UI
     return (
         <>
-            <Descricao subtitulo="Selecione o(s) assento(s)" />
+            <Descricao subtitulo="Selecione o(s) assento(s)" corDescricao="#293845" />
             <AreaAssentos>
                 {assentos.map(assento => (
                 <Assento 

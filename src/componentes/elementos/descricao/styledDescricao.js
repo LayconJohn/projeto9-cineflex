@@ -7,7 +7,7 @@ const DescricaoTela = styled.div`
     justify-content: center;
     align-items: center;
     font-size: 24px;
-    color: #293845;
+    color: ${props => props.corDescricao};
 `;
 
 export {DescricaoTela};

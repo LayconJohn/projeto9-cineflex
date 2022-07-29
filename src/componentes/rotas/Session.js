@@ -22,7 +22,7 @@ export default function Session() {
     
     return (
         <>
-        <Descricao subtitulo="Selecione o horário"/>
+        <Descricao subtitulo="Selecione o horário" corDescricao="#293845"/>
         {dias.map( dia => <SessaoInfo dia={dia}/>)}
         <Footer informacoesFilme={informacoesFilme}></Footer>
         </>
