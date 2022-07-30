@@ -9,7 +9,7 @@ const PosterFilme = styled.div`
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    margin: 0px 30px;
+    margin: 0px 15px;
 
     img {
         width: 129px;
