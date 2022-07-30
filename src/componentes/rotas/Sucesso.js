@@ -1,6 +1,5 @@
-import {Link} from "react-router-dom"
+import {Link, useLocation} from "react-router-dom"
 import styled from "styled-components"
-
 
 import { BotaoForm } from "../elementos/forms/styledForm";
 import Descricao from "../elementos/descricao/Descricao";
@@ -15,20 +14,22 @@ function DetalhesPedido({tituloDetalhe, children}) {
 }
 
 export default function Sucesso(){
+    const location = useLocation();
+
+    console.log(location);
     return (
         <>
             <Descricao subtitulo="Pedido Realizado com sucesso!" corDescricao="#247A6B"/>
             <DetalhesPedido tituloDetalhe="Filme e Sessão">
-                <p>Enola Holmes</p>
-                <p>24/07/2022 - 15:00</p> 
+                <p>{location.state.nomeFilme}</p>
+                <p>{location.state.diaFilme}  {location.state.horarioFilme}</p> 
             </DetalhesPedido>
             <DetalhesPedido tituloDetalhe="Ingressos">
-                <p>Assento 15</p>
-                <p>Assento 16</p> 
+            {location.state.assentos.map( (id, i) => <p key={i}>Assento {id}</p>)}
             </DetalhesPedido>
             <DetalhesPedido tituloDetalhe="Comprador">
-                <p>Nome: Osvaldo </p>
-                <p>CPF: 1234</p> 
+                <p>Nome: {location.state.nomeComprador} </p>
+                <p>CPF: {location.state.cpfComprador}</p> 
             </DetalhesPedido>
             <EspacoBotao>
             <Link to="/">

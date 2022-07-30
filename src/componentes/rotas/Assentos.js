@@ -58,6 +58,7 @@ export default function Assentos(){
                 setNomeComprador={setNomeComprador}
                 cpfComprador={cpfComprador}
                 setCpfComprador={setCpfComprador}
+                informacoesFilme={informacoesSessao}
             />
             <Footer informacoesFilme={informacoesSessao}>
                 <TituloFilme>{informacoesSessao.diaFilme} - {informacoesSessao.horarioFilme}</TituloFilme>

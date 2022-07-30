@@ -8,7 +8,8 @@ export default function Form( {
     nomeComprador, 
     setNomeComprador, 
     cpfComprador, 
-    setCpfComprador
+    setCpfComprador,
+    informacoesFilme
 } ) {
 
     const navigate = useNavigate();
@@ -21,6 +22,13 @@ export default function Form( {
                 return value.id
             } 
         })
+
+        const listaAssentos = assentos.map((value) => {
+            if (value.isSelected) {
+                return value.name
+            }
+        })
+
         const info = {name: nomeComprador, cpf: cpfComprador, ids: listaIds.filter( id => id !== undefined)}
         console.log(info);
 
@@ -28,7 +36,14 @@ export default function Form( {
         promisse.then( (res) => {
             console.log(res)
             alert("Pedido reservado com sucesso!");
-            navigate("/sucesso");
+            navigate("/sucesso", {state: {
+                nomeFilme: informacoesFilme.nomeFilme,
+                diaFilme: informacoesFilme.diaFilme,
+                horarioFilme: informacoesFilme.horarioFilme,
+                nomeComprador: info.name,
+                cpfComprador: info.cpf,
+                assentos: listaAssentos.filter( assento => assento !== undefined)
+            }});
         })
     }
 
