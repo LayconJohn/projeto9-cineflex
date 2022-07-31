@@ -9,15 +9,16 @@ import Session from "./rotas/Session";
 import Sucesso from "./rotas/Sucesso";
 
 export default function App() {
+    const rota = ["/", "/sessoes/:idFilme", "/assentos/:idSessao", "/sucesso"]
     return (
         <>
         <BrowserRouter>
         <Topo />
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/sessoes/:idFilme" element={<Session />} />
-                <Route path="/assentos/:idSessao" element={<Assentos />} />
-                <Route path="/sucesso" element={<Sucesso />} />
+                <Route path={rota[0]} element={<Home />} />
+                <Route path={rota[1]} element={<Session />} />
+                <Route path={rota[2]} element={<Assentos />} />
+                <Route path={rota[3]} element={<Sucesso />} />
             </Routes>
         </BrowserRouter>
         </>

@@ -7,6 +7,7 @@ const Header = styled.header`
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 `;
 
 const Logo = styled.h1`
@@ -17,4 +18,20 @@ const Logo = styled.h1`
 
 `;
 
-export {Header, Logo};
+const BotaoVoltar = styled.div`
+    position: absolute;
+    left: 15px;
+    top: 28px;
+    scale: 0.9;
+    transition: all ease 0.6s;
+
+    &:hover {
+        transform: scale(1);
+    }
+
+    &:active {
+        transform: translateY(3px);
+    }
+`;
+
+export {Header, Logo, BotaoVoltar};

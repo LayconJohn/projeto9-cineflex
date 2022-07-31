@@ -28,6 +28,7 @@ const Horario = styled.div`
     scale: 0.95;
     transition: all ease 0.7s;
     margin-right: 8px;
+    cursor: pointer;
 
     &:hover {
         scale: 1;
