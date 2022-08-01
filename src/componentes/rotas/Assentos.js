@@ -70,8 +70,11 @@ export default function Assentos(){
 
 const AreaAssentos = styled.div`
     width: 100%;
-    padding-left: 16px;
+    padding-left: 12px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
 `;
 

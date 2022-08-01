@@ -61,7 +61,7 @@ export default function Form( {
 
                 <TituloForm> CPF do comprador </TituloForm>
                 <InputForm 
-                    type="text" 
+                    type="number" 
                     placeholder='Digite seu CPF... '
                     value={cpfComprador}
                     onChange={(e) => setCpfComprador(e.target.value)}

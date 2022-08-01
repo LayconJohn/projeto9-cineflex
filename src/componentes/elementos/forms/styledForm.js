@@ -16,10 +16,11 @@ const TituloForm = styled.h5`
 const InputForm = styled.input`
     width: 327px;
     height: 51px;
-    color: #D4D4D4;
+    color: rgba(0, 0, 0, 0.9);
     border-radius: 3px;
     border: 1px solid #D4D4D4;
     padding-left: 18px;
+    opacity: 1;
 `;
 
 const BotaoForm = styled.button`

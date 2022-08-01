@@ -1,5 +1,6 @@
 import {Link, useLocation} from "react-router-dom"
 import styled from "styled-components"
+import { useState, useEffect } from "react";
 
 import { BotaoForm } from "../elementos/forms/styledForm";
 import Descricao from "../elementos/descricao/Descricao";
@@ -16,6 +17,23 @@ function DetalhesPedido({tituloDetalhe, children}) {
 export default function Sucesso(){
     const location = useLocation();
 
+    const [textoCpf, setTextoCpf] = useState("");
+
+    useEffect( () => {
+        const lista = [];
+        location.state.cpfComprador.split().map((letra, index) => {
+            if (index === 2 || index === 5) {
+                lista.push(".");
+            } else if (index === 8) {
+                lista.push("-")
+            }
+            lista.push(letra);
+        })
+        
+        setTextoCpf(lista.join(""));
+    }, [])
+
+
     console.log(location);
     return (
         <>
@@ -29,7 +47,7 @@ export default function Sucesso(){
             </DetalhesPedido>
             <DetalhesPedido tituloDetalhe="Comprador">
                 <p>Nome: {location.state.nomeComprador} </p>
-                <p>CPF: {location.state.cpfComprador}</p> 
+                <p>CPF: {textoCpf}</p> 
             </DetalhesPedido>
             <EspacoBotao>
             <Link to="/">
