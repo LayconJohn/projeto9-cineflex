@@ -5,6 +5,7 @@ import axios from "axios";
 import Descricao from '../elementos/descricao/Descricao';
 import Footer from "../elementos/footer/Footer";
 import SessaoInfo from "../elementos/sessaoInfo/SessaoInfo";
+import Loading from "../elementos/loading/Loading";
 
 export default function Session() {
     const {idFilme} = useParams()
@@ -23,7 +24,11 @@ export default function Session() {
     return (
         <>
         <Descricao subtitulo="Selecione o horário" corDescricao="#293845"/>
-        {dias.map( dia => <SessaoInfo dia={dia}/>)}
+        {dias.length === 0 ? 
+        <Loading /> 
+        : 
+        dias.map( dia => <SessaoInfo dia={dia}/>)
+        }
         <Footer informacoesFilme={informacoesFilme}></Footer>
         </>
     )

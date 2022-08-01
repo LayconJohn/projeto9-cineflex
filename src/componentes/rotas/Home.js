@@ -5,6 +5,7 @@ import axios from 'axios';
 
 import Descricao from '../elementos/descricao/Descricao';
 import Filme from '../elementos/filme/Filme';
+import Loading from '../elementos/loading/Loading';
 
 export default function Home(){
     //state
@@ -27,7 +28,9 @@ export default function Home(){
     return (
         <>
             <Descricao subtitulo="Selecione o filme" corDescricao="#293845"/>
-            {listaFilmes.length === 0 ? "Carregando..." :
+            {listaFilmes.length === 0 ? 
+            <Loading />
+            :
             <AreaFilmes>
                 {listaFilmes.map(filme => (
                     <Link to={`sessoes/${filme.id}`} key={filme.id}> 

@@ -9,6 +9,7 @@ import Descricao from "../elementos/descricao/Descricao";
 import Assento from "../elementos/assento/Assento";
 import Form from "../elementos/forms/Form";
 import Legenda from "../elementos/legenda/Legenda";
+import Loading from "../elementos/loading/Loading";
 
 export default function Assentos(){
     //State
@@ -43,13 +44,17 @@ export default function Assentos(){
         <>
             <Descricao subtitulo="Selecione o(s) assento(s)" corDescricao="#293845" />
             <AreaAssentos>
-                {assentos.map(assento => (
-                <Assento 
-                    key={assento.id} 
-                    assento={assento}
-                    idsAssentos={idsAssentos}
-                    setIdsAssentos={setIdsAssentos}
-                />))}
+                {assentos.length === 0 ? 
+                <Loading /> 
+                : 
+                assentos.map(assento => (
+                    <Assento 
+                        key={assento.id} 
+                        assento={assento}
+                        idsAssentos={idsAssentos}
+                        setIdsAssentos={setIdsAssentos}
+                    />))
+                }
             </AreaAssentos>
             <Legenda />
             <Form 
